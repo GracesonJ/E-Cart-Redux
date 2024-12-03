@@ -1,0 +1,9 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  font-family: "Playfair Display", serif;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
