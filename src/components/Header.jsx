@@ -1,13 +1,15 @@
 import { faBars, faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 
 
 
 function Header() {
-
+    const wishlistArray = useSelector((state)=>state.wishlist)
+    const cartArray = useSelector((state)=>state.cartItem)
     const [show, setShow] = useState(false)
 
     return (
@@ -21,11 +23,11 @@ function Header() {
 
                 {show && <ul className='flex mt-5 md:hidden'>
                     <li>
-                        <Link to={'/wishlist'}><button className='border border-white p-3 rounded hover:bg-white hover:text-violet-900 flex'><FontAwesomeIcon icon={faHeart} style={{ color: "#ea0606", }} className='me-2' />Wishlist <span className='border bg-white px-1 rounded text-black ms-2'>0</span></button></Link>
+                        <Link to={'/wishlist'}><button className='border border-white p-3 rounded hover:bg-white hover:text-violet-900 flex'><FontAwesomeIcon icon={faHeart} style={{ color: "#ea0606", }} className='me-2' />Wishlist <span className='border bg-white px-1 rounded text-black ms-2'>{wishlistArray.length}</span></button></Link>
                     </li>
 
                     <li>
-                        <Link to={'/cart'}> <button className='border border-white p-3 rounded ms-3  hover:bg-white hover:text-violet-900 flex'><FontAwesomeIcon icon={faCartShopping} style={{ color: "#27cc24", }} className='me-3' />Cart <span className='border bg-white px-1 rounded text-black ms-2'>0</span></button></Link>
+                        <Link to={'/cart'}> <button className='border border-white p-3 rounded ms-3  hover:bg-white hover:text-violet-900 flex'><FontAwesomeIcon icon={faCartShopping} style={{ color: "#27cc24", }} className='me-3' />Cart <span className='border bg-white px-1 rounded text-black ms-2'>{cartArray?.length}</span></button></Link>
                     </li>
 
                 </ul>
@@ -33,11 +35,11 @@ function Header() {
 
                 <ul className='ms-auto md:flex hidden'>
                     <li>
-                        <Link to={'/wishlist'}><button className='border border-white p-3 rounded hover:bg-white hover:text-violet-900 flex'><FontAwesomeIcon icon={faHeart} style={{ color: "#ea0606", }} className='me-2' />Wishlist <span className='border bg-white px-1 rounded text-black ms-2'>0</span></button></Link>
+                        <Link to={'/wishlist'}><button className='border border-white p-3 rounded hover:bg-white hover:text-violet-900 flex'><FontAwesomeIcon icon={faHeart} style={{ color: "#ea0606", }} className='me-2' />Wishlist <span className='border bg-white px-1 rounded text-black ms-2'>{wishlistArray.length}</span></button></Link>
                     </li>
 
                     <li>
-                        <Link to={'/cart'}> <button className='border border-white p-3 rounded ms-3  hover:bg-white hover:text-violet-900 flex'><FontAwesomeIcon icon={faCartShopping} style={{ color: "#27cc24", }} className='me-3' />Cart <span className='border bg-white px-1 rounded text-black ms-2'>0</span></button></Link>
+                        <Link to={'/cart'}> <button className='border border-white p-3 rounded ms-3  hover:bg-white hover:text-violet-900 flex'><FontAwesomeIcon icon={faCartShopping} style={{ color: "#27cc24", }} className='me-3' />Cart <span className='border bg-white px-1 rounded text-black ms-2'>{cartArray?.length}</span></button></Link>
                     </li>
 
                 </ul>
