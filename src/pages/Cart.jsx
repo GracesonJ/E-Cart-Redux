@@ -25,7 +25,7 @@ function Cart() {
 
   const handleCheckout = ()=>{
     alert("Order placed Successfully")
-    dispatch(emptyCart)
+    dispatch(emptyCart())
     navigate('/')
   }
   
